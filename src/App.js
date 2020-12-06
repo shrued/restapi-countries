@@ -1,46 +1,24 @@
 import React, { Component } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
+import Temp from "./components/temp/index";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: [],
-      isLoaded: false,
-    };
-  }
-
-  componentDidMount() {
-    fetch("https://restcountries.eu/rest/v2/all")
-      .then((res) => res.json())
-      .then((json) => {
-        this.setState({
-          isLoaded: true,
-          items: json,
-        });
-      });
-  }
-
   render() {
-    var { isLoaded, items } = this.state;
-
-    if (!isLoaded) {
-      return <div>Loading...</div>;
-    } else {
-      return (
-        <div>
-          <ul>
-            {items.map((item) => (
-              <li key={item.id}>
-                {item.name} | {item.alpha2Code} | {item.population} |
-                {item.currencies.map((currency, index) => (
-                  <>{currency.code}</>
-                ))}
-              </li>
-            ))}
-          </ul>
-        </div>
-      );
-    }
+    return (
+      <Router>
+        <Switch>
+          <Route path="/countries" component={Temp} />
+          <Route path="/">
+            <Redirect to="/countries" />
+          </Route>
+        </Switch>
+      </Router>
+    );
   }
 }
 export default App;
