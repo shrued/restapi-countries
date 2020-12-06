@@ -21,7 +21,7 @@
 }
 
 .styled-table tbody tr:last-of-type {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #dddddd;
 }
 
 .table-header {

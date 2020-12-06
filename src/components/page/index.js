@@ -66,7 +66,7 @@ class Page extends Component {
   render() {
     return (
       <>
-        <table border="1" className="styled-table">
+        <table className="styled-table">
           <thead className="table-header">
             <th>Name</th>
             <th>Alpha2Code</th>
