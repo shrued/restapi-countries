@@ -66,8 +66,8 @@ class Page extends Component {
   render() {
     return (
       <>
-        <table border="1">
-          <thead>
+        <table border="1" className="styled-table">
+          <thead className="table-header">
             <th>Name</th>
             <th>Alpha2Code</th>
             <th>Population</th>
@@ -75,7 +75,7 @@ class Page extends Component {
           </thead>
           <tbody>
             {this.state.tableData.map((tdata, index) => (
-              <tr>
+              <tr className="table-row">
                 <td>{tdata.name}</td>
                 <td>{tdata.alpha2Code}</td>
                 <td>{tdata.population}</td>
